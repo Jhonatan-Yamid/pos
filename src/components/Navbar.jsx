@@ -64,6 +64,7 @@ async function Navbar() {
                 <li><Link href={inventoryPath}>Inventario</Link></li>
                 <li><Link href="/dashboard/openChecklist">Apertura</Link></li>
                 <li><Link href="/dashboard/providers">Proveedores</Link></li>
+                <li><Link href="/dashboard/provider-invoice">Facturar Proveedor</Link></li>
 
                 {businessType !== "fruver" && (
                   <li><Link href="/dashboard/ingredients">Ingredientes</Link></li>

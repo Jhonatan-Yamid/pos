@@ -73,6 +73,7 @@ const Menu = ({ session }) => {
                     <li><Link href="/dashboard/openChecklist" className="text-white" onClick={closeMenu}>Apertura</Link></li>
                     <li><Link href="/dashboard/providers" className="text-white" onClick={closeMenu}>Proveedores</Link></li>
                     <li><Link href="/api/auth/signout" className="text-white" onClick={closeMenu}>Logout</Link></li>
+                    <li><Link href="/dashboard/provider-invoice" className="text-white" onClick={closeMenu}>Facturar Proveedor</Link></li>
                   </>
                 </RequireRole>
 
