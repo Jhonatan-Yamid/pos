@@ -100,7 +100,7 @@ export default function ProviderInvoicePage() {
             <option value="">Selecciona un proveedor</option>
             {providers.map((p) => (
               <option key={p.id} value={p.id}>
-                {p.name}
+                {p.description ? p.description : "sin descripción"}
               </option>
             ))}
           </Select>

@@ -854,6 +854,7 @@ function DailySales() {
                                                     </div>
                                                 )}
 
+                                                {getRole(session) === ROLE_ADMIN && (
                                                 <div>
                                                     <label className="block text-xs text-content-muted mb-1">% Descuento</label>
                                                     <input
@@ -865,11 +866,12 @@ function DailySales() {
                                                         className="bg-surface-hover border border-border text-content px-3 py-2 rounded-md w-24 text-right"
                                                     />
                                                 </div>
+                                                )}
                                             </div>
 
                                             {/* Verificación visual antes de guardar */}
                                             <div className="text-sm text-content-muted space-y-1">
-                                                {discountPct > 0 && (
+                                                {getRole(session) === ROLE_ADMIN && discountPct > 0 && (
                                                     <p>
                                                         Total con descuento ({discountPct}%):{" "}
                                                         <span className="text-emerald-400 font-semibold">

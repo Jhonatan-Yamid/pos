@@ -16,7 +16,7 @@ export const GET = withErrorHandling(async (request) => {
   // en el cliente.
   if (searchParams.get("minimal") === "1") {
     const providers = await db.provider.findMany({
-      select: { id: true, name: true },
+      select: { id: true, name: true, description: true },
       orderBy: { name: "asc" },
     });
     return ok(providers);
