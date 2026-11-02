@@ -18,7 +18,7 @@ const RESTAURANT_CATEGORIES = [
 
 const FRUVER_CATEGORIES = ["Mercado", "Fruver", "Fijos", "Otros"];
 
-function ProductForm({ initialData, onSubmit, isNewProduct }) {
+function ProductForm({ initialData, onSubmit, isNewProduct, slug }) {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -38,7 +38,7 @@ function ProductForm({ initialData, onSubmit, isNewProduct }) {
 
   useEffect(() => {
     const fetchIngredients = async () => {
-      const data = await apiGet("/api/ingredient");
+      const data = await apiGet(`/api/${slug}/ingredient`);
       setAllIngredients(data);
 
       if (!isNewProduct && initialData?.ingredients?.length > 0) {
@@ -55,12 +55,12 @@ function ProductForm({ initialData, onSubmit, isNewProduct }) {
     };
 
     fetchIngredients();
-  }, [isNewProduct, initialData]);
+  }, [isNewProduct, initialData, slug]);
 
   useEffect(() => {
     const fetchBusinessConfig = async () => {
       try {
-        const data = await apiGet("/api/business");
+        const data = await apiGet(`/api/${slug}/business`);
         if (data?.type) {
           setBusinessType(data.type.toLowerCase());
         }

@@ -1,29 +1,20 @@
-import { config } from 'dotenv'
+import { PrismaClient } from '@prisma/master-client'
 
-if (process.env.NODE_ENV === 'test' || process.env.VITEST) {
-  config({ path: '.env.test', override: true })
+if (!process.env.MASTER_DATABASE_URL) {
+  throw new Error(
+    'Missing required environment variable: MASTER_DATABASE_URL. ' +
+    'The application cannot start without a connection to the master database.'
+  )
 }
 
-let PrismaClient
-
-if (process.env.DATABASE_URL_TEST) {
-  const testClient = await import('../../prisma/@prisma/client-test/index.js')
-  PrismaClient = testClient.PrismaClient
-} else {
-  const client = await import('@prisma/client')
-  PrismaClient = client.PrismaClient
-}
-
-const prismaClientSingleton = () => {
+const masterDbSingleton = () => {
   return new PrismaClient()
 }
 
-const globalForPrisma = globalThis
-
-const prisma = globalForPrisma.prisma ?? prismaClientSingleton()
-
-export default prisma
+export const masterDb = globalThis.masterDb ?? masterDbSingleton()
 
 if (process.env.NODE_ENV !== 'production') {
-  global.prisma = global.prisma || prisma;
+  globalThis.masterDb = masterDb
 }
+
+export default masterDb

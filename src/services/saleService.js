@@ -156,7 +156,7 @@ export function formatTicketText({
   game,
   availableGames = [],
   availableProducts = [],
-  appName = process.env.NEXT_PUBLIC_APP_NAME || 'Hierbamala',
+  appName = process.env.NEXT_PUBLIC_APP_NAME || 'POS',
   date = new Date(),
 }) {
   const sep = '─────────────────────────────────';

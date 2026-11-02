@@ -1,23 +1,23 @@
 import { apiGet } from '@/libs/apiClient';
 
-export async function fetchAvailableProducts() {
-  return apiGet('/api/product');
+export async function fetchAvailableProducts(slug) {
+  return apiGet(`/api/${slug}/product`);
 }
 
-export async function fetchAvailableGames() {
-  return apiGet('/api/game');
+export async function fetchAvailableGames(slug) {
+  return apiGet(`/api/${slug}/game`);
 }
 
-export async function fetchAvailableAdditions() {
-  return apiGet('/api/product?category=adiciones');
+export async function fetchAvailableAdditions(slug) {
+  return apiGet(`/api/${slug}/product?category=adiciones`);
 }
 
-export async function fetchSaleById(saleId) {
+export async function fetchSaleById(slug, saleId) {
   const numericId = Number(saleId);
   if (Number.isNaN(numericId)) {
     throw new Error('ID de venta inválido');
   }
-  return apiGet(`/api/sale/${numericId}`);
+  return apiGet(`/api/${slug}/sale/${numericId}`);
 }
 
 export function mapSaleApiProductToFormProduct(product) {

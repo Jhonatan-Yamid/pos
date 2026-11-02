@@ -1,92 +1,49 @@
 import Link from "next/link";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import Image from "next/image";
-import MenuToggle from "./Menu";
-import db from "@/libs/db"; // Importamos tu conexión a la base de datos
-import { getRole, ROLE_ADMIN, ROLE_EMPLOYEE } from "@/libs/roles";
+import { getServerSessionForTenant } from "@/libs/getServerSessionForTenant";
 import NavButton from "@/components/ui/NavButton";
+import MenuToggle from "./Menu";
 
+/**
+ * Root Navbar — shown on every page.
+ *
+ * Reads whichever per-tenant session cookie is present in the request so
+ * it works correctly when the user is logged into any tenant.
+ */
 async function Navbar() {
-  const session = await getServerSession(authOptions);
-  
-  // Consultamos la DB directamente en el servidor
-  let businessType = "restaurant";
-  try {
-    const business = await db.business.findFirst();
-    if (business && business.type) {
-      businessType = business.type.toLowerCase();
-    }
-  } catch (error) {
-    console.error("Error obteniendo businessType en Navbar:", error);
-  }
-
-  const inventoryPath = businessType === "fruver" 
-    ? "/dashboard/ProductInventory" 
-    : "/dashboard/IngredientInventory";
+  const session = await getServerSessionForTenant();
+  const slug = session?.user?.slug ?? null;
 
   return (
     <nav className="flex justify-between items-center bg-canvas text-content px-4 md:px-12 py-2 text-sm">
-      <div className="hidden md:flex">
-        <Link href="/dashboard">
-          <Image
-            src = {process.env.NEXT_PUBLIC_WHITE_LOGO}
-            alt="Logo"
-            width={100}
-            height={100}
-            className="mr-3"
-          />
+      <div className="hidden md:flex items-center gap-3">
+        <Link href={slug ? `/${slug}/dashboard` : "/"}>
+          <span className="text-lg font-bold text-emerald-400">POS</span>
         </Link>
+        {session?.user?.name && (
+          <span className="text-slate-400 text-sm">
+            — {session.user.name}
+          </span>
+        )}
       </div>
 
       <ul className="hidden md:flex gap-x-2 space-x-5 items-center">
         {!session?.user ? (
           <>
-            <li><Link href="/">Inicio</Link></li>
             <li>
-              <Link
-                target="_blank"
-                href="https://drive.google.com/file/d/1H1BqvwUrJaqk9l_zJBXoO3yeyixRrG6m/view?usp=sharing"
-              >
-                Menú
-              </Link>
+              <Link href="/">Inicio</Link>
             </li>
             <li>
-              <NavButton href="/auth/login" variant="primary">Login</NavButton>
+              <NavButton href="/auth/login" variant="primary">
+                Login
+              </NavButton>
             </li>
           </>
         ) : (
-          <>
-            {getRole(session) === ROLE_ADMIN ? (
-              <>
-                <li><Link href="/dashboard/saleTable">Ventas</Link></li>
-                <li><Link href="/dashboard/salesDaily">Reportes</Link></li>
-                <li><Link href={inventoryPath}>Inventario</Link></li>
-                <li><Link href="/dashboard/openChecklist">Apertura</Link></li>
-                <li><Link href="/dashboard/providers">Proveedores</Link></li>
-                <li><Link href="/dashboard/provider-invoice">Facturar Proveedor</Link></li>
-
-                {businessType !== "fruver" && (
-                  <li><Link href="/dashboard/ingredients">Ingredientes</Link></li>
-                )}
-
-                <li><Link href="/dashboard/products">Productos</Link></li>
-                <li>
-                  <NavButton href="/api/auth/signout" variant="primary">Logout</NavButton>
-                </li>
-              </>
-            ) : (
-              <>
-                <li><Link href="/dashboard/saleTable">Ventas</Link></li>
-                <li><Link href={inventoryPath}>Inventario</Link></li>
-                <li><Link href="/dashboard/openChecklist">Apertura</Link></li>
-                <li><Link href="/dashboard/provider-invoice">Facturar Proveedor</Link></li>
-                <li>
-                  <NavButton href="/api/auth/signout" variant="primary">Logout</NavButton>
-                </li>
-              </>
-            )}
-          </>
+          <li>
+            <NavButton href="/api/auth/signout" variant="primary">
+              Logout
+            </NavButton>
+          </li>
         )}
       </ul>
 

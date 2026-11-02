@@ -39,7 +39,7 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/setupTests.js',
-    include: ['src/**/*.{test,spec}.{js,jsx}', 'src/**/*.{integration.test,integration.spec}.{js,jsx}'],
+    include: ['src/**/*.{test,spec}.{js,jsx}', 'src/**/*.{integration.test,integration.spec}.{js,jsx}', 'scripts/**/*.{test,spec}.{js,jsx}'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'lcov'],
@@ -48,6 +48,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      '@prisma/master-client': path.resolve(__dirname, './prisma/@prisma/master-client'),
     },
   },
 });

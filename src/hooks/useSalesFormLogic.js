@@ -14,7 +14,7 @@ import {
   mapSaleDataToFormState,
 } from "@/services/saleFormService";
 
-const useSalesFormLogic = (saleId) => {
+const useSalesFormLogic = (saleId, slug) => {
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,9 +36,9 @@ const useSalesFormLogic = (saleId) => {
     setIsLoading(true);
     try {
       const [productsData, gamesData, additionsData] = await Promise.all([
-        fetchAvailableProducts(),
-        fetchAvailableGames(),
-        fetchAvailableAdditions(),
+        fetchAvailableProducts(slug),
+        fetchAvailableGames(slug),
+        fetchAvailableAdditions(slug),
       ]);
 
       setAvailableProducts(productsData);
@@ -46,7 +46,7 @@ const useSalesFormLogic = (saleId) => {
       setAvailableFetchedAdditions(additionsData);
 
       if (saleId) {
-        const saleData = await fetchSaleById(saleId);
+        const saleData = await fetchSaleById(slug, saleId);
         const mappedData = mapSaleDataToFormState(saleData);
 
         setProducts(mappedData.products);
@@ -62,7 +62,7 @@ const useSalesFormLogic = (saleId) => {
     } finally {
       setIsLoading(false);
     }
-  }, [saleId]);
+  }, [saleId, slug]);
 
   useEffect(() => {
     fetchInitialData();
