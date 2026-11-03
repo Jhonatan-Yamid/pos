@@ -7,9 +7,15 @@
 export function buildManifest(config) {
   const slug = config?.slug;
 
-  const icon192 = config?.manifest_icon_192 || '/icons/serverHM-192.png';
-  const icon256 = config?.manifest_icon_256 || '/icons/serverHM-256.png';
-  const icon512 = config?.manifest_icon_512 || '/icons/serverHM-512.png';
+  // Prefer explicit icon URLs stored in the DB.
+  // If not set, fall back to the tenant's slug-based icon path,
+  // then to a generic placeholder.
+  const slugIcon = (size) =>
+    slug ? `/icons/${slug}-${size}.png` : `/icons/default-${size}.png`;
+
+  const icon192 = config?.manifest_icon_192 || slugIcon('192');
+  const icon256 = config?.manifest_icon_256 || slugIcon('256');
+  const icon512 = config?.manifest_icon_512 || slugIcon('512');
 
   return {
     name: config?.app_name || 'POS',

@@ -124,10 +124,12 @@ export async function middleware(req) {
 
   // ── 5. Public slug paths: allow unauthenticated ────────────────────────────
   //
-  // /[slug]/auth/login (and any future public auth pages)
+  // /[slug]/auth/login  — login page
+  // /[slug]/manifest.json — PWA manifest (needed before authentication)
   const isPublicSlugPath =
     pathname === `/${slug}/auth/login` ||
-    pathname.startsWith(`/${slug}/auth/login/`);
+    pathname.startsWith(`/${slug}/auth/login/`) ||
+    pathname === `/${slug}/manifest.json`;
 
   if (isPublicSlugPath) {
     return NextResponse.next();
