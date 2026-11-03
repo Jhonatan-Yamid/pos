@@ -44,6 +44,7 @@ const RESERVED_SEGMENTS = new Set([
   '_next',
   'icons',
   'favicon.ico',
+  'manifest.webmanifest',
 ]);
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -159,8 +160,8 @@ export async function middleware(req) {
 
 /**
  * Run middleware on every path except static assets.
- * Excludes: _next/static, _next/image, favicon.ico, icons/
+ * Excludes: _next/static, _next/image, favicon.ico, icons/, manifest.webmanifest
  */
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon\\.ico|icons/).*)'],
+  matcher: ['/((?!_next/static|_next/image|favicon\\.ico|icons/|manifest\\.webmanifest).*)'],
 };

@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: 'POS App',
   description: 'Sistema de punto de venta multi-tenant.',
+  manifest: '/manifest.webmanifest',
 };
 
 export default function RootLayout({ children }) {
