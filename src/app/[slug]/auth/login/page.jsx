@@ -42,8 +42,10 @@ function LoginPage({ params }) {
     if (res?.error) {
       setError("Credenciales inválidas");
     } else {
-      router.push(callbackUrl);
-      router.refresh();
+      // Use a full page navigation instead of client-side routing.
+      // This ensures the session cookie is flushed and read by the
+      // middleware before the next request, preventing redirect loops.
+      window.location.href = callbackUrl;
     }
   });
 
