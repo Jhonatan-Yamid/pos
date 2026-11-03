@@ -65,7 +65,7 @@ export default function TenantNavbar() {
     <>
       <nav className="flex justify-between items-center bg-canvas text-content px-4 md:px-8 py-2 border-b border-border">
 
-        {/* ── Mobile: hamburger button ────────────────────────────────── */}
+        {/* ── Mobile: hamburger button (only visible on mobile) ───────── */}
         <button
           className="md:hidden text-white mr-3"
           onClick={() => setMenuOpen(true)}
@@ -74,8 +74,8 @@ export default function TenantNavbar() {
           <HiMenuAlt2 size={28} />
         </button>
 
-        {/* ── Logo ────────────────────────────────────────────────────── */}
-        <Link href={dashHref} className="flex items-center gap-2 flex-shrink-0">
+        {/* ── Logo (desktop only) ─────────────────────────────────────── */}
+        <Link href={dashHref} className="hidden md:flex items-center gap-2 flex-shrink-0">
           {logoUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img src={logoUrl} alt={appName} className="h-8 w-auto" />
@@ -100,10 +100,10 @@ export default function TenantNavbar() {
           </ul>
         )}
 
-        {/* ── Right: user name + logout ────────────────────────────────── */}
-        <div className="flex items-center gap-3 ml-auto">
+        {/* ── Right: user name + logout (desktop only) ─────────────────── */}
+        <div className="hidden md:flex items-center gap-3 ml-auto">
           {session?.user?.name && (
-            <span className="hidden md:inline text-content-muted text-sm">
+            <span className="text-content-muted text-sm">
               {session.user.name}
             </span>
           )}
@@ -154,7 +154,7 @@ export default function TenantNavbar() {
                       <Link
                         href={link.href}
                         onClick={() => setMenuOpen(false)}
-                        className="block px-3 py-2 rounded-lg text-content hover:bg-surface-hover transition"
+                        className="block px-4 py-4 rounded-lg text-content text-lg hover:bg-surface-hover transition"
                       >
                         {link.label}
                       </Link>
@@ -163,7 +163,7 @@ export default function TenantNavbar() {
                   <li className="mt-4">
                     <button
                       onClick={() => { setMenuOpen(false); handleSignOut(); }}
-                      className="w-full text-left px-3 py-2 rounded-lg text-danger hover:bg-surface-hover transition"
+                      className="w-full text-left px-4 py-4 rounded-lg text-danger text-lg hover:bg-surface-hover transition"
                     >
                       Cerrar sesión
                     </button>
@@ -174,7 +174,7 @@ export default function TenantNavbar() {
                   <Link
                     href={loginHref}
                     onClick={() => setMenuOpen(false)}
-                    className="block px-3 py-2 rounded-lg text-content hover:bg-surface-hover transition"
+                    className="block px-4 py-4 rounded-lg text-content text-lg hover:bg-surface-hover transition"
                   >
                     Login
                   </Link>
