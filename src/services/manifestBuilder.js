@@ -16,19 +16,21 @@ export function buildManifest(config) {
     background_color: '#020712',
     icons: [
       {
-        src: config?.manifest_icon_192 || '/icons/default-192.png',
+        src: config?.manifest_icon_192 || '/icons/serverHM-192.png',
         sizes: '192x192',
         type: 'image/png',
+        purpose: 'any maskable',
       },
       {
-        src: config?.manifest_icon_256 || '/icons/default-256.png',
+        src: config?.manifest_icon_256 || '/icons/serverHM-256.png',
         sizes: '256x256',
         type: 'image/png',
       },
       {
-        src: config?.manifest_icon_512 || '/icons/default-512.png',
+        src: config?.manifest_icon_512 || '/icons/serverHM-512.png',
         sizes: '512x512',
         type: 'image/png',
+        purpose: 'any maskable',
       },
     ],
   };

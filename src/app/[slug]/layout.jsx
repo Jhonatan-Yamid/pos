@@ -26,6 +26,17 @@ const FALLBACK_CONFIG = {
 };
 
 /**
+ * Generates metadata including the tenant-specific manifest link.
+ * This makes the browser use /{slug}/manifest.json instead of the
+ * generic root manifest, enabling per-tenant PWA branding.
+ */
+export async function generateMetadata({ params }) {
+  return {
+    manifest: `/${params.slug}/manifest.json`,
+  };
+}
+
+/**
  * Slug-scoped layout (server component).
  *
  * - Resolves tenant config from Master_DB (with cache).

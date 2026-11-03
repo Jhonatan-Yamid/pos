@@ -1,17 +1,19 @@
+import withPWA from 'next-pwa';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
     return [
       {
         source: '/api/ingredient/:id',
-        destination: '/api/ingredient/[id]', // Mapea las rutas dinámicas correctamente
+        destination: '/api/ingredient/[id]',
       },
     ];
   },
   async headers() {
     return [
       {
-        source: '/api/(.*)', // Aplica a todas las rutas de API
+        source: '/api/(.*)',
         headers: [
           {
             key: 'Cache-Control',
@@ -25,4 +27,9 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withPWA({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development',
+})(nextConfig);
