@@ -149,6 +149,8 @@ export async function middleware(req) {
   // If the token belongs to a different tenant, redirect to that tenant's
   // login page instead of showing a raw JSON error.
   if (token.slug !== slug) {
+    // DEBUG: remove after confirming slug matching works in production
+    console.error(`[middleware] slug mismatch: token.slug="${token.slug}" url slug="${slug}"`);
     const loginUrl = new URL(`/${slug}/auth/login`, req.url);
     loginUrl.searchParams.set('callbackUrl', pathname);
     return NextResponse.redirect(loginUrl);
