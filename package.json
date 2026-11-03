@@ -12,6 +12,7 @@
         "test:unit": "vitest run src/services/**/*.spec.{js,jsx}",
         "coverage": "vitest run --coverage",
         "prisma:generate:master": "prisma generate --schema=prisma/schema.master.prisma",
+        "vercel-build": "prisma generate && prisma generate --schema=prisma/schema.master.prisma && next build",
         "prisma:generate:test": "cross-env DATABASE_URL_TEST=file:./dev-test.db prisma generate --schema=prisma/schema.test.prisma",
         "prisma:push:test": "cross-env DATABASE_URL_TEST=file:./dev-test.db prisma db push --schema=prisma/schema.test.prisma",
         "test:integration": "npm run prisma:generate:test && npm run prisma:push:test && cross-env NODE_ENV=test DATABASE_URL_TEST=file:./dev-test.db vitest run \"src/app/api/[slug]/ingredient/ingredient.integration.spec.js\" \"src/app/api/[slug]/providers/providers.integration.spec.js\" \"src/app/api/[slug]/sale/sale.integration.spec.js\"",
