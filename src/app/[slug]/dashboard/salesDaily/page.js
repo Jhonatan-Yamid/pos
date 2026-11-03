@@ -321,6 +321,8 @@ export default function SalesDailyPage() {
             Total: {formatCurrency(selectedDay.totalSales)}
           </p>
 
+          <PaymentSummary date={selectedDay.date} slug={slug} />
+
           {(() => {
             const pockets = calculatePockets(selectedDay.totalSales);
             return (
@@ -356,6 +358,75 @@ function calculateMovingAverage(data, period) {
       window.reduce((sum, d) => sum + d.totalSales, 0) / window.length;
     return { ...entry, movingAvg: avg };
   });
+}
+
+function PaymentSummary({ date, slug }) {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    if (!date || !slug) return;
+
+    async function fetchPaymentSummary() {
+      try {
+        setLoading(true);
+        setError(false);
+        const res = await fetch(`/api/${slug}/sale/daily/${date}`);
+        if (!res.ok) throw new Error("Error fetching payment summary");
+        const json = await res.json();
+        setData(json);
+      } catch {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchPaymentSummary();
+  }, [date, slug]);
+
+  if (loading) {
+    return (
+      <section className="mb-4">
+        <p className="text-content-muted text-sm">Cargando pagos...</p>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="mb-4">
+        <p className="text-red-400 text-sm">No se pudo cargar el resumen de pagos.</p>
+      </section>
+    );
+  }
+
+  return (
+    <section className="mb-6">
+      <h3 className="text-content font-semibold text-sm mb-3">Métodos de pago</h3>
+      <div className="space-y-2 text-sm">
+        <div className="flex justify-between bg-surface-hover px-4 py-2 rounded-control border border-border">
+          <span className="text-content-muted">Transferencias</span>
+          <span className="font-semibold text-content">
+            {Math.round(data?.transferCount ?? 0)}
+          </span>
+        </div>
+        <div className="flex justify-between bg-surface-hover px-4 py-2 rounded-control border border-border">
+          <span className="text-content-muted">Total transferencias</span>
+          <span className="font-semibold text-content">
+            {formatCurrency(data?.transferTotal ?? 0)}
+          </span>
+        </div>
+        <div className="flex justify-between bg-surface-hover px-4 py-2 rounded-control border border-border">
+          <span className="text-content-muted">Total efectivo</span>
+          <span className="font-semibold text-content">
+            {formatCurrency(data?.cashTotal ?? 0)}
+          </span>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 function PocketRow({ label, value }) {

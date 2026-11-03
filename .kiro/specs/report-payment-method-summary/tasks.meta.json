@@ -1,0 +1,261 @@
+{
+  "pbtResults": {
+    "1.2 Escribir property tests para `computeContribution`": {
+      "status": "passed",
+      "lastRunTimestamp": 1793615537869
+    },
+    "2.2 Escribir property test para la lógica del día operativo": {
+      "status": "passed",
+      "lastRunTimestamp": 1793615559925
+    },
+    "3.2 Escribir property test para la validación del formato de fecha": {
+      "status": "passed",
+      "lastRunTimestamp": 1793616126385
+    },
+    "5.2 Escribir property test para `formatCurrency`": {
+      "status": "passed",
+      "lastRunTimestamp": 1793616180398
+    }
+  },
+  "executionHistory": {
+    "1.1 Crear `src/app/api/[slug]/sale/daily/[date]/paymentContribution.js` con la función `computeContribution({ paymentType, totalAmount, cashAmount })`": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614968080
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614973713
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615021517
+      }
+    ],
+    "1.2 Escribir property tests para `computeContribution`": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614968174
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615026530
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615567518
+      }
+    ],
+    "2.1 Crear `src/app/api/[slug]/sale/daily/[date]/operationalDay.js` con las funciones `computeOperationalDay(date)` y `buildUtcRange(dateStr)`": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614968274
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614975805
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615023921
+      }
+    ],
+    "2.2 Escribir property test para la lógica del día operativo": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614968368
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615028440
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615570160
+      }
+    ],
+    "3.1 Implementar el handler usando `resolveTenantConfig`, `getTenantDb`, validación con regex `/^\\d{4}-\\d{2}-\\d{2}$/`, query raw con `$queryRaw` y llamadas a `computeContribution`": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614968441
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615030614
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615572820
+      }
+    ],
+    "3.2 Escribir property test para la validación del formato de fecha": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614968523
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615575489
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616134005
+      }
+    ],
+    "3.3 Escribir tests unitarios para el route handler": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614968599
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615577504
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616136250
+      }
+    ],
+    "4. Checkpoint — verificar backend": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614968698
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616195103
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616524320
+      }
+    ],
+    "5.1 Crear la función `PaymentSummary({ date, slug })` dentro de `src/app/[slug]/dashboard/salesDaily/page.js`": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614968932
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615579623
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616138850
+      }
+    ],
+    "5.2 Escribir property test para `formatCurrency`": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614969024
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616143642
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616187354
+      }
+    ],
+    "6.1 Modificar el bloque `{showModal && selectedDay && ...}` para renderizar `<PaymentSummary date={selectedDay.date} slug={slug} />` antes de la sección de porcentajes existente": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614969144
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616145965
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616190400
+      }
+    ],
+    "7. Checkpoint final — asegurar integración completa": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793614969249
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616526557
+      },
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616577844
+      }
+    ],
+    "1. Crear la función pura de cálculo de contribuciones por `paymentType`": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615567616
+      }
+    ],
+    "2. Crear la función pura de lógica del día operativo": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793615570269
+      }
+    ],
+    "3. Crear el route handler `GET /api/[slug]/sale/daily/[date]/route.js`": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616136378
+      }
+    ],
+    "5. Implementar el componente `PaymentSummary` en `salesDaily/page.js`": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616187517
+      }
+    ],
+    "6. Integrar `PaymentSummary` en la Modal de `salesDaily/page.js`": [
+      {
+        "executionId": "37e239b0-a1b3-409e-a9d3-c22db949a9e0",
+        "chatSessionId": "sess_7d549934-36ec-4032-b55a-12397c9ddd7e",
+        "timestamp": 1793616190589
+      }
+    ]
+  }
+}
